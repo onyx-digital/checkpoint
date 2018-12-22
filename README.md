@@ -36,7 +36,7 @@ https://github.com/onyx-digital/checkpoint.git
 2. Open the solution using MS Visual Studo.
 
 ```
-checkpoint/Onyx.CheckPoint.sln
+checkpoint/CheckPoint.sln
 ```
 
 ## Deployment
@@ -48,7 +48,7 @@ The solution includes a Windows Installer for simple automated installation.
 2. Copy the install the package installer to the target system.
 
 ```
-Onyx.CheckPoint.Installer/Setup.exe
+CheckPoint.Installer/Setup.exe
 ```
 
 ## Built With

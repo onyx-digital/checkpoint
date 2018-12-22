@@ -1,0 +1,104 @@
+﻿<Window x:Class="CheckPoint.UI.Dialogs.NewCheckPointDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Commit Check Point" 
+        Height="275" 
+        Width="500" WindowStyle="None">
+
+    <DockPanel LastChildFill="False">
+        <StackPanel 
+            DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="Author Name">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbAuthor"
+                    Style="{StaticResource FormField}"
+                    Controls:TextBoxHelper.Watermark="Frank Herbert">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel 
+                DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="Author Email">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbEmail"
+                    Controls:TextBoxHelper.Watermark="frank.herbert@yahoo.com"
+                    Style="{StaticResource FormField}">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel 
+                DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="CheckPoint Description">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbMessage"
+                    Controls:TextBoxHelper.Watermark="Backup my latest change."
+                    Style="{StaticResource FormField}">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            DockPanel.Dock="Right">
+            <Button 
+                IsDefault="True" 
+                Name="btnDialogOk" 
+                Click="btnDialogOk_Click" 
+                Style="{StaticResource ToolbarButton}">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome
+                        Kind="CheckCircleSolid"
+                        Style="{StaticResource ButtonIcon}" />
+                    <TextBlock>
+                        OK
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button 
+                IsCancel="True"
+                Style="{StaticResource ToolbarButton}">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome
+                        Kind="TimesCircleSolid"
+                        Style="{StaticResource ButtonIcon}" />
+                    <TextBlock>
+                        Cancel
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </DockPanel>
+  </Window>

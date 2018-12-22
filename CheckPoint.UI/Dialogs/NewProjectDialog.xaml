@@ -1,0 +1,117 @@
+﻿<Window x:Class="CheckPoint.UI.Dialogs.NewProjectDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Commit Check Point" 
+        Height="300" 
+        MinHeight="300"
+        Width="500" 
+        MinWidth="500"
+        WindowStyle="None">
+
+    <DockPanel LastChildFill="False">
+        <Grid 
+            DockPanel.Dock="Top"  
+            Style="{StaticResource HeaderGrid}">
+            <TextBlock
+                x:Name="txbHeader"
+                Text="Create Project"
+                Style="{StaticResource HeaderStyle}" />
+        </Grid>
+
+        <StackPanel 
+                DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="Project Name">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbProjectName"
+                    Controls:TextBoxHelper.Watermark="Project Jupiter"
+                    Style="{StaticResource FormField}">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel 
+            DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="Local Repository Path">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbLocalPath"
+                    Controls:TextBoxHelper.Watermark="C:\Project Juptier"
+                    Style="{StaticResource FormField}">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel 
+            DockPanel.Dock="Top">
+            <Controls:MetroHeader 
+                Margin="10,5" 
+                Header="Git Branch Name">
+                <Controls:MetroHeader.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="{Binding}"
+                            Style="{StaticResource FormHeader}"/>
+                    </DataTemplate>
+                </Controls:MetroHeader.HeaderTemplate>
+                <TextBox 
+                    x:Name="txbRepoBranch"
+                    Controls:TextBoxHelper.Watermark="master"
+                    Style="{StaticResource FormField}">
+                </TextBox>
+            </Controls:MetroHeader>
+        </StackPanel>
+        <StackPanel
+            Orientation="Horizontal"
+            VerticalAlignment="Bottom"
+            DockPanel.Dock="Right">
+            <Button 
+                IsDefault="True" 
+                Name="btnDialogOk" 
+                Click="btnDialogOk_Click" 
+                Style="{StaticResource ToolbarButton}">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome
+                        Kind="CheckCircleSolid"
+                        Style="{StaticResource ButtonIcon}" />
+                    <TextBlock>
+                        OK
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+            <Button 
+                IsCancel="True"
+                Style="{StaticResource ToolbarButton}">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <iconPacks:PackIconFontAwesome
+                        Kind="TimesCircleSolid"
+                        Style="{StaticResource ButtonIcon}" />
+                    <TextBlock>
+                        Cancel
+                    </TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </DockPanel>
+  </Window>

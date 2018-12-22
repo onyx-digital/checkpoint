@@ -1,0 +1,110 @@
+﻿<Application x:Class="CheckPoint.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             StartupUri="MainWindow.xaml"
+             Exit="Application_Exit" >
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Cobalt.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro.IconPacks;component/Themes/PackIconFontAwesome.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <Style TargetType="{x:Type Page}" x:Key="PageStyle">
+                <Setter Property="Background" Value="White" />
+            </Style>
+
+            <Style x:Key="HeaderGrid" TargetType="{x:Type Grid}">
+                <Setter Property="Height" Value="40" />
+                <Setter Property="Background" Value="LightGray"/>
+            </Style>
+
+            <Style x:Key="ToolbarDockPanel" TargetType="{x:Type DockPanel}">
+                <Setter Property="Height" Value="50" />
+                <Setter Property="ClipToBounds" Value="True"/>
+            </Style>
+
+            <Style x:Key="ToolbarStackPanel" TargetType="{x:Type StackPanel}">
+                <Setter Property="Height" Value="50" />
+                <Setter Property="ClipToBounds" Value="True"/>
+            </Style>
+
+            <Style x:Key="HeaderStyle" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource {x:Type TextBlock}}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Margin" Value="5 0 0 0"/>
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+                <Setter Property="FontWeight" Value="DemiBold" />
+            </Style>
+
+            <Style x:Key="FormHeader" TargetType="TextBlock">
+                <Setter Property="Margin" Value="0 0 10 0" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+                <Setter Property="FontWeight" Value="DemiBold" />
+            </Style>
+
+            <Style x:Key="FormField" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="MinHeight" Value="30"/>
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+                <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                <Style.Triggers>
+                    <Trigger Property="Controls:TextBoxHelper.HasText" Value="False">
+                        <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="False" />
+                    </Trigger>
+                    <Trigger Property="Controls:TextBoxHelper.HasText" Value="True">
+                        <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="FormPassword" TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource {x:Type PasswordBox}}">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                <Style.Triggers>
+                    <Trigger Property="Controls:TextBoxHelper.HasText" Value="False">
+                        <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="False" />
+                    </Trigger>
+                    <Trigger Property="Controls:TextBoxHelper.HasText" Value="True">
+                        <Setter Property="Controls:TextBoxHelper.ClearTextButton" Value="True" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="ToolbarButton" TargetType="Button" BasedOn="{StaticResource MetroButton}">
+                <Setter Property="Margin" Value="0,10,10,10" />
+                <Setter Property="MinWidth" Value="80" />
+                <Setter Property="Height" Value="40" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+            </Style>
+
+            <Style x:Key="ButtonIcon" TargetType="{x:Type iconPacks:PackIconFontAwesome}" BasedOn="{StaticResource MahApps.Metro.Styles.PackIconFontAwesome}">
+                <Setter Property="Margin" Value="0,0,8,0" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+
+            <Style x:Key="RowButton" TargetType="Button" BasedOn="{StaticResource MetroButton}">
+                <Setter Property="Margin" Value="0,5,5,5" />
+                <Setter Property="MinWidth" Value="60" />
+                <Setter Property="Height" Value="30" />
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="Foreground" Value="DarkSlateGray" />
+            </Style>
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

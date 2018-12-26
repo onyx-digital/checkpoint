@@ -24,20 +24,66 @@
                     Style="{StaticResource HeaderStyle}" />
             </Grid>
 
-            <ToolBar
-                    DockPanel.Dock="Top"
-                    Height="50"
-                    ClipToBounds="False" HorizontalContentAlignment="Stretch">
-                <Button
-                      ToolTip="Info"
-                      ToolBar.OverflowMode="Always">
-                </Button>
-                <ToggleButton />
-            </ToolBar>
+            <StackPanel
+                Orientation="Horizontal"
+                DockPanel.Dock="Top" 
+                HorizontalAlignment="Center"
+                Margin="0,25,0,0">
+                <Image 
+                    Source="/CheckPoint;component/Assets/Images/CheckPointLogoBlue.jpg"
+                    Width="75"/>
+                <TextBlock 
+                    x:Name="txbWelcomeHeading"
+                    DockPanel.Dock="Top" 
+                    Text=" CheckPoint"
+                    FontSize="32"
+                    Style="{StaticResource HeaderStyle}" 
+                    VerticalAlignment="Center" />           
+            </StackPanel>
 
-            <Grid>
-            </Grid>            
+            <TextBlock 
+                x:Name="txbWelcomeSubHeading"
+                DockPanel.Dock="Top" 
+                Text="A simple backup and restore utility powered by Git."
+                FontSize="16"
+                Style="{StaticResource HeaderStyle}" 
+                HorizontalAlignment="Center" 
+                Padding="0,10,0,0"/>
+            
+            <StackPanel 
+                x:Name="grdPopularProjects"
+                DockPanel.Dock="Bottom">
+                <TextBlock 
+                    x:Name="lblPopularProjects"
+                    Text="Popular Projects"
+                    Style="{StaticResource HeaderStyle}" />
+
+                <DataGrid
+                    x:Name="dgRecentProjects">                    
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel 
+                x:Name="grdRecentProjects"
+                DockPanel.Dock="Bottom">
+                <TextBlock 
+                    x:Name="txbRecentProjects"
+                    Text="Recent Projects" 
+                    Style="{StaticResource HeaderStyle}" />
+
+                <DataGrid
+                    x:Name="dgPopularProjects">
+                </DataGrid>
+            </StackPanel>
+
+            <Grid VerticalAlignment="Top">
+                <Image 
+                x:Name="imgPictorial"
+                Source="/CheckPoint;component/Assets/Images/CheckPointHomePictorial.png"
+                Height="500"
+                Margin="0,25,0,0" />
+            </Grid>
         </DockPanel>
     </Grid>
-    
+
 </Page>

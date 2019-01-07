@@ -8,6 +8,8 @@ namespace CheckPoint.Core.Models
 {
     public class GitProject
     {
+        public Guid ProjectId { get; set; }
+
         public string ProjectName { get; set; }
 
         public string RepoLocalPath { get; set; }
@@ -21,5 +23,9 @@ namespace CheckPoint.Core.Models
         public string RepoAccount { get; set; }
 
         public string RepoPassword { get; set; }
+
+        public DateTime LastOpened { get; set; }
+
+        public double TimesOpened { get; set; }
     }
 }

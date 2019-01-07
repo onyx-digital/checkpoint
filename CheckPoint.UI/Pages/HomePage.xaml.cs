@@ -1,4 +1,5 @@
-﻿using CheckPoint.UI.Models;
+﻿using CheckPoint.Core.Models;
+using CheckPoint.UI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +26,20 @@ namespace CheckPoint.UI.Pages
         public HomePage()
         {
             InitializeComponent();
+            UpdatePopularProjects();
+            UpdateRecentProjects();
         }
 
+        private void UpdatePopularProjects()
+        {
+            List<GitProject> projects = App.ProjectControl.ReadProjects();
+            dgPopularProjects.ItemsSource = projects.OrderByDescending(p => p.TimesOpened).Take(3);
+        }
 
+        private void UpdateRecentProjects()
+        {
+            List<GitProject> projects = App.ProjectControl.ReadProjects();
+            dgRecentProjects.ItemsSource = projects.OrderByDescending(p => p.LastOpened).Take(3);
+        }
     }
 }

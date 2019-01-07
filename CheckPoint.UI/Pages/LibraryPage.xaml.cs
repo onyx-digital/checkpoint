@@ -57,7 +57,7 @@ namespace CheckPoint.UI.Pages
                     };
 
                     App.GitControl.Clone(newProject);
-                    SaveProject(newProject);
+                    CreateProject(newProject);
                 }
             }
             catch (Exception e)
@@ -92,7 +92,7 @@ namespace CheckPoint.UI.Pages
 
 
                     App.GitControl.Init(newProject.RepoLocalPath);
-                    SaveProject(newProject);
+                    CreateProject(newProject);
                 }
             }
             catch (Exception e)
@@ -102,11 +102,16 @@ namespace CheckPoint.UI.Pages
         }
 
         /// <summary>
-        /// This function naviagates to the Project Page and opens the selected project.
+        /// This function updates the project stats before opening the project.
         /// </summary>
         private void OpenProject()
         {
             GitProject selectedProject = (GitProject)dgProjects.SelectedItem;
+
+            selectedProject.LastOpened = DateTime.Now;
+            selectedProject.TimesOpened += 1;
+            App.ProjectControl.UpdateProject(selectedProject);
+
             this.NavigationService.Navigate(new ProjectPage(selectedProject));
         }
 
@@ -114,7 +119,7 @@ namespace CheckPoint.UI.Pages
         /// This function adds a new git project to the CheckPoint Project Library.
         /// </summary>
         /// <param name="newProject">Git project to be added to the library.</param>
-        private void SaveProject(GitProject newProject)
+        private void CreateProject(GitProject newProject)
         {
             try
             {
@@ -142,7 +147,7 @@ namespace CheckPoint.UI.Pages
                 MessageBox.Show(e.Message, "Error");
             }
         }
-
+        
         #endregion
 
 

@@ -108,5 +108,25 @@ namespace CheckPoint.UI.Controllers
             }
         }
 
+                    using (StreamWriter file = new StreamWriter(PROJECT_DATA_PATH, false))
+                    {
+                        file.WriteLine(jsonData);
+                    }
+                }
+                else
+                {
+                    string exMessage = "ProjectData.json file does not exists.";
+                    App.AppLogger.Error(exMessage);
+                    throw new Exception(exMessage);
+                }
+            }
+            catch (Exception e)
+            {
+                string exMessage = "An error occurred while updating the ProjectsData.json file. Check the Error Log for detailed exception info.";
+                App.AppLogger.Error(e, exMessage);
+                throw new Exception(exMessage);
+            }
+        }
+
     }
 }

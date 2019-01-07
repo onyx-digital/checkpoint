@@ -51,28 +51,71 @@
                 Padding="0,10,0,0"/>
             
             <StackPanel 
-                x:Name="grdPopularProjects"
                 DockPanel.Dock="Bottom">
                 <TextBlock 
                     x:Name="lblPopularProjects"
                     Text="Popular Projects"
-                    Style="{StaticResource HeaderStyle}" />
-
+                    Style="{StaticResource HeaderStyle}"
+                    />
                 <DataGrid
-                    x:Name="dgRecentProjects">                    
+                    x:Name="dgPopularProjects"
+                    IsReadOnly="True"
+                    HeadersVisibility="None"
+                    AutoGenerateColumns="False">
+                    <DataGrid.Style>
+                        <Style BasedOn="{StaticResource MetroDataGrid}" TargetType="{x:Type DataGrid}">
+                            <Setter Property="AlternatingRowBackground" Value="{DynamicResource GrayBrush10}" />
+                            <Setter Property="MinRowHeight" Value="30" />
+                            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+                        </Style>
+                    </DataGrid.Style>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Binding="{Binding ProjectName}" 
+                            Width="*"
+                            FontSize="15">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Bottom" />
+                                    <Setter Property="Margin" Value="10 0 0 0"/>
+                               </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
 
             <StackPanel 
-                x:Name="grdRecentProjects"
                 DockPanel.Dock="Bottom">
                 <TextBlock 
                     x:Name="txbRecentProjects"
                     Text="Recent Projects" 
                     Style="{StaticResource HeaderStyle}" />
-
                 <DataGrid
-                    x:Name="dgPopularProjects">
+                    x:Name="dgRecentProjects"
+                    IsReadOnly="True"
+                    HeadersVisibility="None"
+                    AutoGenerateColumns="False">
+                    <DataGrid.Style>
+                        <Style BasedOn="{StaticResource MetroDataGrid}" TargetType="{x:Type DataGrid}">
+                            <Setter Property="AlternatingRowBackground" Value="{DynamicResource GrayBrush10}" />
+                            <Setter Property="MinRowHeight" Value="30" />
+                            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+                        </Style>
+                    </DataGrid.Style>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn 
+                            Binding="{Binding ProjectName}" 
+                            Width="*"
+                            FontSize="15">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="VerticalAlignment" Value="Bottom" />
+                                    <Setter Property="Margin" Value="10 0 0 0"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
 

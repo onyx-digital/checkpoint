@@ -34,7 +34,7 @@ namespace CheckPoint.UI.Controllers
 
                     // Set default values.
                     List<GitProject> projectDefaults = ProjectDataDefaults.GetDefaults();
-                    string jsonData = JsonConvert.SerializeObject(projectDefaults, 
+                    string jsonData = JsonConvert.SerializeObject(projectDefaults,
                         Formatting.Indented);
 
                     using (StreamWriter file = new StreamWriter(PROJECT_DATA_PATH, true))
@@ -84,6 +84,8 @@ namespace CheckPoint.UI.Controllers
                 {
                     // Add a new project to the current collection and rewrite the file.
                     List<GitProject> projects = ReadProjects();
+
+                    newProject.ProjectId = Guid.NewGuid();
                     projects.Add(newProject);
 
                     string jsonData = JsonConvert.SerializeObject(projects, Formatting.Indented);
@@ -107,6 +109,21 @@ namespace CheckPoint.UI.Controllers
                 throw new Exception(exMessage);
             }
         }
+        
+        public void UpdateProject(GitProject editedProject)
+        {
+            try
+            {
+                bool fileExists = File.Exists(PROJECT_DATA_PATH);
+
+                if (fileExists)
+                {
+                    List<GitProject> projects = ReadProjects();
+                    GitProject projectMatch = projects.First(p => p.ProjectId == editedProject.ProjectId);                    
+                    projects.Remove(projectMatch);
+                    projects.Add(editedProject);
+
+                    string jsonData = JsonConvert.SerializeObject(projects, Formatting.Indented);
 
                     using (StreamWriter file = new StreamWriter(PROJECT_DATA_PATH, false))
                     {
